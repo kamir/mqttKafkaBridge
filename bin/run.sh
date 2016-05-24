@@ -1,0 +1,4 @@
+cd .. 
+mvn compile assembly:single -U
+cd bin
+java -jar ./../target/mqttKafkaBridge-0.2.0-jar-with-dependencies.jar --id B1 --topics T1,T2,T3 --uri tcp://localhost:1883 --zk quickstart.cloudera:2181

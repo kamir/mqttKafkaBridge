@@ -14,7 +14,16 @@
         </developerConnection>
 	</scm>
 
-   
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+ 
+    <filters>
+      <filter>${basedir}/target/filter.properties</filter>
+    </filters>
 
 	<!-- Dependencies -->
 	<dependencies>
@@ -60,7 +69,32 @@
 	<!-- Plugins -->
 	<build>
 		<plugins>
+
+<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+                <!-- Safety -->
+                <mkdir dir="${project.build.directory}"/>
  
+                <tstamp>
+                  <format property="last.updated" pattern="yyyy-MM-dd hh:mm:ss"/>
+                </tstamp>
+                <echo file="${basedir}/target/filter.properties" message="build.time=${last.updated}"/>
+                <echo file="${basedir}/target/filter.properties" message="kafka.version=0.8.2.0"/>
+
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 			<!-- Set the compiler plugin - override default JDK version -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
