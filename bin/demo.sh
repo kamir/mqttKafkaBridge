@@ -1,7 +1,7 @@
-xterm -e mosquitto -d -p 1883 -v
+xterm -e bash -c "mosquitto -d -p 1883 -v;exec bash" &
 
-xterm -e mosquitto_sub -t T1
+xterm -e bash -c "mosquitto_sub -t T1;exec bash" &
 
-xterm -e ./run.sh
+xterm -e bash -c "./run.sh;exec bash" &
 
-xterm -e echo "Ready to send messages ... (mosquitto_sub -t T1)"
+xterm -e bash -c "echo 'Ready to send messages ... (mosquitto_pub -t T1 -m ABCDEFG)';exec bash" & 
