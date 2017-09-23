@@ -1,3 +1,7 @@
+# PREP
+https://stackoverflow.com/questions/30606447/kafka-consumer-fetching-metadata-for-topics-failed
+
+
 # mqttKafkaBridge
 
 Bridge which consumes MQTT messages and republishes them on Kafka on the same topic.
