@@ -1,7 +1,9 @@
 # PREP
 https://stackoverflow.com/questions/30606447/kafka-consumer-fetching-metadata-for-topics-failed
 
-
+# Test Topics
+java -cp target/mqttKafkaBridge-0.2.0-jar-with-dependencies.jar com.cloudera.iot.mqtt.Kafka2MqttConnector 127.0.0.1:2181 1 sunfounder_demo 1
+ 
 # mqttKafkaBridge
 
 Bridge which consumes MQTT messages and republishes them on Kafka on the same topic.
