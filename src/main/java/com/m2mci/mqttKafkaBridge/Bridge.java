@@ -35,7 +35,7 @@ public class Bridge implements MqttCallback {
 		props.put("zk.connect", zkConnect);
 		
 		// FIX one
-		props.put("metadata.broker.list", "quickstart.cloudera:9092");
+		props.put("metadata.broker.list", "127.0.0.1:9092");
 		
 		// Fix two
 		props.put("serializer.class", "kafka.serializer.StringEncoder"); 
