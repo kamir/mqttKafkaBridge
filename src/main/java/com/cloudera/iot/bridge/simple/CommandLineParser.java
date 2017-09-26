@@ -1,4 +1,4 @@
-package com.m2mci.mqttKafkaBridge;
+package com.cloudera.iot.bridge.simple;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -55,7 +55,7 @@ public class CommandLineParser {
 
 	public void printUsage(OutputStream out) {
 		PrintStream stream = new PrintStream(out);
-		stream.println("java " + Bridge.class.getName() + " [options...]");
+		stream.println("java " + CDDCBridge.class.getName() + " [options...]");
 		parser.printUsage(out);
 	}
 }
