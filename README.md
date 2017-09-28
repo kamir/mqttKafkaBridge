@@ -19,9 +19,13 @@ java -cp target/mqttKafkaBridge-0.3.0-jar-with-dependencies.jar com.cloudera.iot
 All parameters are hardcoded in classes:
 
 -MqttSubscriber
+
 -MqttPublisher
+
 -SubscribeToKafka
+
 -PublishViaKafka
+
 -ConsumerLoop
 
 # Solution 2: 
