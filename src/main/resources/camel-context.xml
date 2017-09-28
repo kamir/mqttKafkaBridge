@@ -30,11 +30,11 @@
             <from uri="mqtt:iot?host=tcp://192.168.3.172:1883&amp;subscribeTopicNames=#&amp;userName=kapua-sys&amp;password=kapua-password" />
             <convertBodyTo type="java.lang.String" />
             <!-- setBody> <simple>${in.header.CamelMQTTSubscribeTopic}</simple> </setBody-->
-            <to uri="kafka:localhost:9092?topic=device1&amp;zookeeperHost=127.0.0.1&amp;zookeeperPort=2181&amp;groupId=group1&amp;serializerClass=kafka.serializer.StringEncoder"/>
+            <to uri="kafka:cc-poc-mk-2.gce.cloudera.com:9092?topic=device1_data&amp;zookeeperHost=cc-poc-mk-1.gce.cloudera.com&amp;zookeeperPort=2181&amp;groupId=group1&amp;serializerClass=kafka.serializer.StringEncoder"/>
       </route>
 
       <route>
-            <from uri="kafka:localhost:9092?topic=sunfounder_demo_cmd&amp;zookeeperHost=127.0.0.1&amp;zookeeperPort=2181&amp;groupId=group2&amp;serializerClass=kafka.serializer.StringEncoder&amp;autoOffsetReset=smallest&amp;consumersCount=1" />
+            <from uri="kafka:cc-poc-mk-2.gce.cloudera.com:9092?topic=device1_cmd&amp;zookeeperHost=cc-poc-mk-1.gce.cloudera.com&amp;zookeeperPort=2181&amp;groupId=group2&amp;serializerClass=kafka.serializer.StringEncoder&amp;autoOffsetReset=smallest&amp;consumersCount=1" />
             <convertBodyTo type="java.lang.String" />
             <!-- setBody> <simple>${in.header.CamelMQTTSubscribeTopic}</simple> </setBody-->
             <!-- to uri="stream:out" / -->
