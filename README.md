@@ -12,14 +12,24 @@ Project was refactored, needs an update to all docs.
 # Solution 1:
 Building a bidirectional bridge using a device-cluster connector and a cluster-device connector in two parallel threads.
 
+## Test 
+java -cp target/mqttKafkaBridge-0.3.0-jar-with-dependencies.jar com.cloudera.iot.bridge.simple.CDDCBridge 
+
+## Configuration
+All parameters are hardcoded in classes:
+
+-MqttSubscriber
+-MqttPublisher
+-SubscribeToKafka
+-PublishViaKafka
+-ConsumerLoop
+
 # Solution 2: 
 Define two "Camel-routes".
 
-# PREPARATION
+# Connectivity Issue:
 https://stackoverflow.com/questions/30606447/kafka-consumer-fetching-metadata-for-topics-failed
 
-# Test Topics
-java -cp target/mqttKafkaBridge-0.2.0-jar-with-dependencies.jar com.cloudera.iot.mqtt.Kafka2MqttConnector 127.0.0.1:2181 1 sunfounder_demo 1
  
 
 
