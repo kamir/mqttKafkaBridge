@@ -31,6 +31,12 @@ All parameters are hardcoded in classes:
 # Solution 2: 
 Define two "Camel-routes".
 
+java -cp target/mqttKafkaBridge-0.3.0-jar-with-dependencies.jar com.cloudera.iot.bridge.camel.CamelConsoleMain 
+
+## Configuration
+All routes are defined in camel-context.xml.
+
+
 # Connectivity Issue:
 https://stackoverflow.com/questions/30606447/kafka-consumer-fetching-metadata-for-topics-failed
 
