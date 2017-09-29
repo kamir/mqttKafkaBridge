@@ -1,5 +1,6 @@
 # MqttKafkaBridge
-An IoT bridge, which consumes MQTT messages from a MQTT broker and republishes them on a Kafka topic. This bridge connects the IoT plattforms, such as Eclipse Kapua to the enterprise data hub, on premise or in the cloud.
+An IoT bridge is a system, which consumes MQTT messages from an MQTT-Broker and republishes them on a Kafka topic. 
+The bridge we implemented here connects the IoT plattform Eclipse Kapua with the Enterprise Data Hub, (CDH on premise or in the cloud).
 
 Currently, we use only on instance of the bridge, but multiple instances can be used to esablish m:n relations.
 Before we use many bridge instaces in a particular cluster, we have to add some more features:
