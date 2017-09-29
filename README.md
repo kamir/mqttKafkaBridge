@@ -20,7 +20,7 @@ The IoT platforms are focused on devices and connectivity. Data management platf
 2) - execute the "control.sh" script 
 ```
 control.sh bootstrap
-´´´ 
+```
 
 
 Our approach for bridging IoT platforms and CDH clusters uses two complementary solutions.
