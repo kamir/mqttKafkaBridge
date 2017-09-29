@@ -61,9 +61,9 @@ All routes are defined in the camel-context.xml file.
 
 
 # Next Steps
-(1) Finish parametrization
-(2) Finish CSD based deployment
-(3) Manage logging and metrics via CM
+1) Finish parametrization
+2) Finish CSD based deployment
+3) Manage logging and metrics via CM
 
 
 # Open Issues:
