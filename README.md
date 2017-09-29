@@ -1,22 +1,27 @@
 # MqttKafkaBridge
-A bridge consumes MQTT messages and republishes them on Kafka topic.
-Multiple instances can be used to esablish m:n relations.
+An IoT bridge, which consumes MQTT messages from a MQTT broker and republishes them on a Kafka topic. This bridge connects the IoT plattforms, such as Eclipse Kapua to the enterprise data hub, on premise or in the cloud.
 
+Currently, we use only on instance of the bridge, but multiple instances can be used to esablish m:n relations.
+Before we use many bridge instaces in a particular cluster, we have to add some more features:
 
+1) - configurable route definitions.
+2) - monitoring of the "long running" service
+3) - packaging of CSD for CM based deployment.
 
 !!! WARNING !!! 
-Project was refactored, needs an update to all docs.
+The project was refactored recently, it still needs docu updates.
 
-
+Our approach to bridge IoT platforms and CDH clusters uses two complementary solutions.
 
 # Solution 1:
 Building a bidirectional bridge using a device-cluster connector and a cluster-device connector in two parallel threads.
+This approach allows any kind of custom code to be integrated without the learning overhead of additional frameworks.
 
 ## Test 
 java -cp target/mqttKafkaBridge-0.3.0-jar-with-dependencies.jar com.cloudera.iot.bridge.simple.CDDCBridge 
 
 ## Configuration
-All parameters are hardcoded in classes:
+All parameters are hardcoded in the classes:
 
 -MqttSubscriber
 
@@ -29,15 +34,17 @@ All parameters are hardcoded in classes:
 -ConsumerLoop
 
 # Solution 2: 
-Define two "Camel-routes".
+Using a standard message routing system allows us, to work with many different endpoints for data transfer. Working with enterprise integration patterns becomes easy this way. We simply define two "Camel-routes" between the topics we want to mirror.
 
 java -cp target/mqttKafkaBridge-0.3.0-jar-with-dependencies.jar com.cloudera.iot.bridge.camel.CamelConsoleMain 
 
 ## Configuration
-All routes are defined in camel-context.xml.
+All routes are defined in the camel-context.xml file.
 
 
-# Connectivity Issue:
+# Open Issues:
+
+## Connectivity Issue:
 https://stackoverflow.com/questions/30606447/kafka-consumer-fetching-metadata-for-topics-failed
 
  
@@ -51,9 +58,7 @@ up the topics among the instances, and make sure to give them different IDs.
 
 ## Logging
 `mqttKafkaBridge` uses [log4j](http://logging.apache.org/log4j/2.x/) for logging, as do the [Paho](http://www.eclipse.org/paho/) 
-and [Kafka](http://kafka.apache.org/) libraries it uses. There is a default `log4j.properties` file packaged with the jar which 
-simply prints all messages of level `INFO` or greater to the console. If you want to customize logging, simply create your 
-own `log4j.properties` file, and start up `mqttKafkaBridge` as follows:
+and [Kafka](http://kafka.apache.org/) libraries it uses. There is a default `log4j.properties` file packaged with the jar which simply prints all messages of level `INFO` or greater to the console. If you want to customize logging, simply create your own `log4j.properties` file, and start up `mqttKafkaBridge` as follows:
 
-    $ java -Dlog4j.configuration=file:///path/to/log4j.properties -jar mqttKafkaBridge.jar [options...]
+    $ java -Dlog4j.configuration=file:///path/to/log4j.properties ... [options...]
 
