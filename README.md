@@ -15,6 +15,12 @@ The project was refactored recently, it still needs docu updates.
 
 The IoT platforms are focused on devices and connectivity. Data management platforms are focused on dealing with data from all devices in near real time and at scale. Both technologies need each other in a variety of contexts. Typically, a big data applocation can't offer device management, while an IoT system has doesn't offer the data analysis and ML capabilities.
 
+# Quickstart:
+1) - clone the repo in a working directory (this is needed only temporarily)
+2) - execute the "control.sh" script 
+```
+control.sh bootstrap".
+
 
 Our approach for bridging IoT platforms and CDH clusters uses two complementary solutions.
 
