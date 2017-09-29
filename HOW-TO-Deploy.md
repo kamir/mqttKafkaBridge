@@ -9,7 +9,7 @@ mvn install
 
 
 #
-# FUSEKI runs on JAVA 8 only !!!
+# WE USE JAVA 8 ...
 # http://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/#
 #
 
@@ -18,7 +18,7 @@ mvn install
 # First we validate the CSD
 #
 
-java -jar /Volumes/MyExternalDrive/GITHUB/cm_ext/validator/target/validator.jar -s ./src/TTFAQ-1.0/descriptor/service.sdl
+java -jar ./cm_ext/validator/target/validator.jar -s ./src/MQTT2Kafka-1.0/descriptor/service.sdl
 
 
 #
