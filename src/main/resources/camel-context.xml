@@ -27,7 +27,7 @@
   <camelContext xmlns="http://camel.apache.org/schema/spring">
 
       <route>
-            <from uri="mqtt:iot?host=tcp://192.168.3.172:1883&amp;subscribeTopicNames=#&amp;userName=kapua-sys&amp;password=kapua-password" />
+            <from uri="mqtt:iot?host=tcp://cc-poc-mk-4.gce.cloudera.com:1883&amp;subscribeTopicNames=device1/data&amp;userName=kapua-sys&amp;password=kapua-password" />
             <convertBodyTo type="java.lang.String" />
             <!-- setBody> <simple>${in.header.CamelMQTTSubscribeTopic}</simple> </setBody-->
             <to uri="kafka:cc-poc-mk-2.gce.cloudera.com:9092?topic=device1_data&amp;zookeeperHost=cc-poc-mk-1.gce.cloudera.com&amp;zookeeperPort=2181&amp;groupId=group1&amp;serializerClass=kafka.serializer.StringEncoder"/>
@@ -38,8 +38,7 @@
             <convertBodyTo type="java.lang.String" />
             <!-- setBody> <simple>${in.header.CamelMQTTSubscribeTopic}</simple> </setBody-->
             <!-- to uri="stream:out" / -->
-            <to uri="mqtt:iot?host=tcp://192.168.3.172:1883&amp;publishTopicName=sunfounder_demo/cmd&amp;userName=kapua-sys&amp;password=kapua-password" />
-            
+            <to uri="mqtt:iot?host=tcp://cc-poc-mk-4.gce.cloudera.com:1883&amp;publishTopicName=device1/cmd&amp;userName=kapua-sys&amp;password=kapua-password" />       
       </route>
 
   </camelContext>
