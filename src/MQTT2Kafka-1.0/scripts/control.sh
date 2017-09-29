@@ -8,7 +8,9 @@ export MQTT2KAFKA_BRIDGE_REPO=https://github.com/kamir/mqttKafkaBridge
 # Some default-settings (maybe they work not in any case)
 #
 
-export CONTEXT_FILE=$1
+export CMD=$1
+export CONTEXT_FILE=$2
+
 
 
 
@@ -35,7 +37,6 @@ case $CMD in
     echo " "
     echo ">>> Starting the Bridge-Server."
     exec java -cp MQTT2KAFKA_BRIDGE_HOME/mqttKafkaBridge/target/mqtt2kafkaBridge-0.3.0-jar-with-dependencies.jar com.cloudera.iot.bridge.camel.CamelConsoleMain $CONTEXT_FILE &
-    echo ">>> Done."
 
     ;;
   (bootstrap)
@@ -53,7 +54,7 @@ case $CMD in
     cd mqttKafkaBridge
     mvn clean compile assembly:single
     ;;
-    echo ">>> Done."
+
 
   (*)
     echo "Don't understand [$CMD]"
