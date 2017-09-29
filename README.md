@@ -1,5 +1,6 @@
 # MqttKafkaBridge
-An IoT bridge, which consumes MQTT messages from a MQTT broker and republishes them on a Kafka topic. This bridge connects the IoT plattforms, such as Eclipse Kapua to the enterprise data hub, on premise or in the cloud.
+An IoT bridge is a system, which consumes MQTT messages from an MQTT-Broker and republishes them on a Kafka topic. 
+The bridge we implemented here connects the IoT plattform Eclipse Kapua with the Enterprise Data Hub, (CDH on premise or in the cloud).
 
 Currently, we use only on instance of the bridge, but multiple instances can be used to esablish m:n relations.
 Before we use many bridge instaces in a particular cluster, we have to add some more features:
@@ -11,7 +12,24 @@ Before we use many bridge instaces in a particular cluster, we have to add some 
 !!! WARNING !!! 
 The project was refactored recently, it still needs docu updates.
 
-Our approach to bridge IoT platforms and CDH clusters uses two complementary solutions.
+![sketch](https://github.com/kamir/mqttKafkaBridge/blob/master/docs/MQTT-Kafka-Bridge/Canvas%201.jpg?raw=true "Overview: Bridge between IoT platforms and data management platforms.")
+
+The IoT platforms are focused on devices and connectivity. Data management platforms are focused on dealing with data from all devices in near real time and at scale. Both technologies need each other in a variety of contexts. Typically, a big data applocation can't offer device management, while an IoT system has doesn't offer the data analysis and ML capabilities.
+
+# Quickstart:
+1) - clone the repo into your working directory - this is needed only temporarily
+2) - modify the code / routes 
+3) - build the jar file and copy the project folder to /opt/clouder/iot/mqttKafkaBridge
+```
+mvn clean compile assemby:single
+```
+4) - execute the "control.sh" script in the CSD folder mqttKafkaBridge/src/MQTT2Kafka-1.0/scripts/
+```
+./src/MQTT2Kafka-1.0/scripts/ control.sh start
+```
+Assuming, the routes are fine and access is given to the system - the bridge should forward messages in two direction.
+
+Our approach for bridging IoT platforms and CDH clusters uses two complementary solutions.
 
 # Solution 1:
 Building a bidirectional bridge using a device-cluster connector and a cluster-device connector in two parallel threads.
@@ -40,6 +58,12 @@ java -cp target/mqttKafkaBridge-0.3.0-jar-with-dependencies.jar com.cloudera.iot
 
 ## Configuration
 All routes are defined in the camel-context.xml file.
+
+
+# Next Steps
+1) Finish parametrization
+2) Finish CSD based deployment
+3) Manage logging and metrics via CM
 
 
 # Open Issues:
