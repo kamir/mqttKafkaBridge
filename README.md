@@ -11,7 +11,12 @@ Before we use many bridge instaces in a particular cluster, we have to add some 
 !!! WARNING !!! 
 The project was refactored recently, it still needs docu updates.
 
-Our approach to bridge IoT platforms and CDH clusters uses two complementary solutions.
+![sketch](https://github.com/kamir/mqttKafkaBridge/blob/master/docs/MQTT-Kafka-Bridge/Canvas%201.jpg?raw=true "Overview: Bridge between IoT platforms and data management platforms.")
+
+The IoT platforms are focused on devices and connectivity. Data management platforms are focused on dealing with data from all devices in near real time and at scale. Both technologies need each other in a variety of contexts. Typically, a big data applocation can't offer device management, while an IoT system has doesn't offer the data analysis and ML capabilities.
+
+
+Our approach for bridging IoT platforms and CDH clusters uses two complementary solutions.
 
 # Solution 1:
 Building a bidirectional bridge using a device-cluster connector and a cluster-device connector in two parallel threads.
