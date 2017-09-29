@@ -1,0 +1,15 @@
+<!-- Copyright (c) 2017 Cloudera, Inc. All rights reserved. -->
+<assembly>
+    <id>MQTT2Kafka</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+      <fileSet>
+        <directory>${project.basedir}/src/MQTT2Kafka-1.0</directory>
+        <outputDirectory>/</outputDirectory>
+        </fileSet>
+     </fileSets>
+</assembly>
+

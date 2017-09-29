@@ -173,6 +173,59 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
+            
+            
+                   <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <tasks>
+                                <copy file="/GITHUB/ETOSHA.WS/etosha/etosha-parent/etosha-docworld/dist/Etosha_DocWorld.war" tofile="/GITHUB/ETOSHA.WS/etosha/etosha-parent/etosha-docworld/DISTRIBUTE/DocWorld.PARCEL/TTFAQ-1.1/scripts/tools/EDW.war"/>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution> 
+                </executions>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <appendAssemblyId>true</appendAssemblyId>
+                    <descriptors>
+                        <descriptor>assembly_MQTT2Kafka.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                
+                <executions>
+                    
+                    <execution>
+                        <id>make-MQTT2Kafka-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <finalName>MQTT2Kafka-1.0</finalName>
+                            <descriptors>
+                                <descriptor>assembly_MQTT2Kafka.xml</descriptor>
+                            </descriptors>
+                            <attach>true</attach>
+                        </configuration>
+                    </execution>                      
+                    
+                </executions>
+            </plugin>
+            
+            
         </plugins>
     </build>
 

@@ -1,0 +1,27 @@
+{
+  "name" : "MQTT2Kafka",
+  "label" : "MQTT2Kafka",
+  "description" : "The MQTT-2-Kafka Bridge for CDH.",
+  "version" : "1.0",
+  "icon" : "images/logo.png",
+  "rolesWithExternalLinks" : ["MQTT2Kafka_SERVICE"],
+  "runAs" : { 
+    "user" : "root",
+    "group" : "root"
+   },  
+   "roles" : [
+    {
+       "name" : "MQTT2Kafka_SERVICE",
+       "label" : "MQTT2Kafka Service",
+       "pluralLabel" : "ETC Services",
+        "topology" : {
+          "minInstances" : "1",
+          "maxInstances" : "1"
+        },
+        "startRunner" : {
+          "program" : "scripts/control.sh",
+          "args" : [ "start" ]
+        }
+    }
+  ]
+}
