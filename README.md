@@ -60,6 +60,12 @@ java -cp target/mqttKafkaBridge-0.3.0-jar-with-dependencies.jar com.cloudera.iot
 All routes are defined in the camel-context.xml file.
 
 
+# Next Steps
+(1) Finish parametrization
+(2) Finish CSD based deployment
+(3) Manage logging and metrics via CM
+
+
 # Open Issues:
 
 ## Connectivity Issue:
