@@ -16,12 +16,17 @@ The project was refactored recently, it still needs docu updates.
 The IoT platforms are focused on devices and connectivity. Data management platforms are focused on dealing with data from all devices in near real time and at scale. Both technologies need each other in a variety of contexts. Typically, a big data applocation can't offer device management, while an IoT system has doesn't offer the data analysis and ML capabilities.
 
 # Quickstart:
-1) - clone the repo in a working directory (this is needed only temporarily)
-2) - execute the "control.sh" script 
+1) - clone the repo into your working directory - this is needed only temporarily
+2) - modify the code / routes 
+3) - build the jar file and copy the project folder to /opt/clouder/iot/mqttKafkaBridge
 ```
-control.sh bootstrap
+mvn clean compile assemby:single
 ```
-
+4) - execute the "control.sh" script in the CSD folder mqttKafkaBridge/src/MQTT2Kafka-1.0/scripts/
+```
+./src/MQTT2Kafka-1.0/scripts/ control.sh start
+```
+Assuming, the routes are fine and access is given to the system - the bridge should forward messages in two direction.
 
 Our approach for bridging IoT platforms and CDH clusters uses two complementary solutions.
 
